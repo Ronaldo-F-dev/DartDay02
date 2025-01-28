@@ -61,3 +61,29 @@ protocoleBeta(String lettre) {
 int compterElement(List<String> maListe, String element) {
   return maListe.where((item) => item == element).length;
 }
+
+protocoleGamma(String lettre) {
+  if (starWithCher(lettre)) {
+    print("La lettre débute par Cher.");
+  } else {
+    print("La lettre ne débute pas par Cher.");
+  }
+  if (endWithCordialement(lettre)) {
+    print("La lettre termine par Cordialement.");
+  } else {
+    print("La lettre ne termine pas par Cordialement.");
+  }
+  print("Le document nettoyé est : ${nettoyerDocument(lettre)}");
+}
+
+bool starWithCher(String lettre) {
+  return lettre.startsWith("Cher");
+}
+
+bool endWithCordialement(String lettre) {
+  return lettre.endsWith("Cordialement");
+}
+
+String nettoyerDocument(String document) {
+  return document.trim().replaceAll(RegExp(r'\s+'), ' ');
+}
