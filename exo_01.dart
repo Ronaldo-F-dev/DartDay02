@@ -23,7 +23,7 @@ Notre agent de liaison vous contactera à 23h.
 
 analyserLettre(String lettre) {
   protocoleAlpha(lettre);
-  //protocoleBeta(lettre);
+  protocoleBeta(lettre);
   //protocoleGamma(lettre);
   //protocoleDelta(lettre);
   //protocoleDeSecurite(lettre);
@@ -48,6 +48,14 @@ protocoleAlpha(String lettre) {
 
   ListRecurrent.forEach(
       (element, nombreDeFois) => {print("$element => $nombreDeFois")});
+}
+
+protocoleBeta(String lettre) {
+  String lettreReversed = lettre.split('').reversed.join();
+  print("La lettre $lettre renversée donne $lettreReversed");
+  String lettreReplaced = lettre.replaceAll("Agent", "Espion");
+  lettreReplaced = lettreReplaced.replaceAll("agent", "espion");
+  print("Le remplacement des occurences donne : $lettreReplaced");
 }
 
 int compterElement(List<String> maListe, String element) {
