@@ -5,8 +5,8 @@ void main() {
 }
 
 void calculerTrajet(int distance) {
-  protocolEnergique(distance);
-  //protocolDeGestionEnergie(distance);
+  //protocolEnergique(distance);
+  protocolDeGestionEnergie(distance);
   //protocolDePointDeControl(distance);
   //protocolDeSecurite(distance);
 }
@@ -29,4 +29,16 @@ void protocolEnergique(int distance) {
     quotient = (distance / 10).floor();
   }
   print("$quotient recharge(s) + charge initiale");
+}
+
+void protocolDeGestionEnergie(int distance) {
+  double consommation = (distance * distance).toDouble();
+  if (distance < 0) {
+    print("Distance invalide !");
+    return;
+  }
+  if (distance > 50) {
+    consommation += (consommation * 0.2);
+  }
+  print("Consommation estimée : $consommation unités énergétiques");
 }
