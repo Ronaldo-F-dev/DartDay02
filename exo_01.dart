@@ -22,11 +22,11 @@ Notre agent de liaison vous contactera à 23h.
 }
 
 analyserLettre(String lettre) {
-  protocoleAlpha(lettre);
+  //protocoleAlpha(lettre);
   protocoleBeta(lettre);
-  protocoleGamma(lettre);
-  protocoleDelta(lettre);
-  protocoleDeSecurite(lettre);
+  //protocoleGamma(lettre);
+  //protocoleDelta(lettre);
+  //protocoleDeSecurite(lettre);
 }
 
 protocoleAlpha(String lettre) {
@@ -47,14 +47,21 @@ protocoleAlpha(String lettre) {
   }
 
   ListRecurrent.forEach(
-      (element, nombreDeFois) => {print("$element => $nombreDeFois")});
+      (element, nombreDeFois) => print("$element => $nombreDeFois"));
 }
 
-protocoleBeta(String lettre) {
+void protocoleBeta(String lettre) {
   String lettreReversed = lettre.split('').reversed.join();
   print("La lettre $lettre renversée donne $lettreReversed");
-  String lettreReplaced = lettre.replaceAll("Agent", "Espion");
-  lettreReplaced = lettreReplaced.replaceAll("agent", "espion");
+  String lettreReplaced =
+      lettre.replaceAllMapped(RegExp(r'\b[Aa]gent\b'), (match) {
+    String original = match.group(0)!;
+    if (original[0] == original[0].toUpperCase()) {
+      return "Espion";
+    } else {
+      return "espion";
+    }
+  });
   print("Le remplacement des occurences donne : $lettreReplaced");
 }
 
@@ -85,9 +92,9 @@ protocoleDeSecurite(String message) {
     print("Le message est vide après suppression des espaces");
   }
   List messageList = message.split("");
-  for (int i = 0; i < message.length; i++) {
-    if (int.tryParse(message[i]) == true) {
-      messageList[i] = int.parse(message[i]);
+  for (int i = 0; i < messageList.length; i++) {
+    if (int.tryParse(messageList[i]) == true) {
+      messageList[i] = int.parse(messageList[i]);
     }
   }
   print("Le texte après la convertion est :${messageList.join()} ");
