@@ -7,8 +7,8 @@ void main() {
 void calculerTrajet(int distance) {
   //protocolEnergique(distance);
   //protocolDeGestionEnergie(distance);
-  protocolDePointDeControl(distance);
-  //protocolDeSecurite(distance);
+  //protocolDePointDeControl(distance);
+  protocolDeSecurite(distance);
 }
 
 void protocolEnergique(int distance) {
@@ -58,4 +58,18 @@ void protocolDePointDeControl(int distance) {
   }).toList();
   print("Points de ravitaillement : $pointsRavitaillement");
   print("Formaté pour LED : $pointsFormates");
+}
+
+void protocolDeSecurite(int distance) {
+  List<int> pointsPuissance = [];
+  int puissance = 1;
+  while (pow(2, puissance) <= distance) {
+    pointsPuissance.add(pow(2, puissance).toInt());
+    puissance++;
+  }
+  print("Distance analysée : $distance km");
+  print("Points de Puissance détectés : $pointsPuissance");
+  if (distance < 10 || distance > 100) {
+    print("Activation alarme de sécurité");
+  }
 }
