@@ -24,9 +24,9 @@ Notre agent de liaison vous contactera à 23h.
 analyserLettre(String lettre) {
   protocoleAlpha(lettre);
   protocoleBeta(lettre);
-  //protocoleGamma(lettre);
-  //protocoleDelta(lettre);
-  //protocoleDeSecurite(lettre);
+  protocoleGamma(lettre);
+  protocoleDelta(lettre);
+  protocoleDeSecurite(lettre);
 }
 
 protocoleAlpha(String lettre) {
@@ -58,10 +58,6 @@ protocoleBeta(String lettre) {
   print("Le remplacement des occurences donne : $lettreReplaced");
 }
 
-int compterElement(List<String> maListe, String element) {
-  return maListe.where((item) => item == element).length;
-}
-
 protocoleGamma(String lettre) {
   if (starWithCher(lettre)) {
     print("La lettre débute par Cher.");
@@ -74,18 +70,6 @@ protocoleGamma(String lettre) {
     print("La lettre ne termine pas par Cordialement.");
   }
   print("Le document nettoyé est : ${nettoyerDocument(lettre)}");
-}
-
-bool starWithCher(String lettre) {
-  return lettre.startsWith("Cher");
-}
-
-bool endWithCordialement(String lettre) {
-  return lettre.endsWith("Cordialement");
-}
-
-String nettoyerDocument(String document) {
-  return document.trim().replaceAll(RegExp(r'\s+'), ' ');
 }
 
 void protocoleDelta(String message) {
@@ -109,7 +93,23 @@ protocoleDeSecurite(String message) {
   print("Le texte après la convertion est :${messageList.join()} ");
 }
 
+bool starWithCher(String lettre) {
+  return lettre.startsWith("Cher");
+}
+
+bool endWithCordialement(String lettre) {
+  return lettre.endsWith("Cordialement");
+}
+
+String nettoyerDocument(String document) {
+  return document.trim().replaceAll(RegExp(r'\s+'), ' ');
+}
+
 bool letterIsNull(String lettre) {
   String lettreFormatter = lettre.replaceAll(RegExp(r'\s+'), ' ');
   return lettreFormatter.replaceAll(RegExp(r'\n\s*\n'), '\n').isEmpty;
+}
+
+int compterElement(List<String> maListe, String element) {
+  return maListe.where((item) => item == element).length;
 }
