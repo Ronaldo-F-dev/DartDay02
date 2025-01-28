@@ -87,3 +87,11 @@ bool endWithCordialement(String lettre) {
 String nettoyerDocument(String document) {
   return document.trim().replaceAll(RegExp(r'\s+'), ' ');
 }
+
+void protocoleDelta(String message) {
+  print("La version du message en minuscule est : ${message.toLowerCase()}");
+  print("La version du message en majuscule est : ${message.toUpperCase()}");
+  if (message.length >= 43) {
+    print("Le caractère à l'index 42 est ${message[42]}");
+  }
+}
