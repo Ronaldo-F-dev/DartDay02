@@ -95,3 +95,21 @@ void protocoleDelta(String message) {
     print("Le caractère à l'index 42 est ${message[42]}");
   }
 }
+
+protocoleDeSecurite(String message) {
+  if (letterIsNull(message)) {
+    print("Le message est vide après suppression des espaces");
+  }
+  List messageList = message.split("");
+  for (int i = 0; i < message.length; i++) {
+    if (int.tryParse(message[i]) == true) {
+      messageList[i] = int.parse(message[i]);
+    }
+  }
+  print("Le texte après la convertion est :${messageList.join()} ");
+}
+
+bool letterIsNull(String lettre) {
+  String lettreFormatter = lettre.replaceAll(RegExp(r'\s+'), ' ');
+  return lettreFormatter.replaceAll(RegExp(r'\n\s*\n'), '\n').isEmpty;
+}
