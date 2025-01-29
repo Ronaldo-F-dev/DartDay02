@@ -39,6 +39,13 @@ void afficherStats(List<String> chansons, List<double> durees) {
   print("Durée moyenne : ${dureeMoyenne.toStringAsFixed(2)} minutes");
 }
 
+void rechercherDoublon(List<String> chansons, String chanson) {
+  bool doublon = chansons.where((c) => c == chanson).length > 1;
+  print(doublon
+      ? "Doublon détecté pour : $chanson"
+      : "Pas de doublon pour : $chanson");
+}
+
 void main() {
   List<String> playlist = [
     "Daddy",
