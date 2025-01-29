@@ -61,6 +61,13 @@ List<String> shufflePlaylist(List<String> chansons) {
   return chansons;
 }
 
+List<String> filtrerPlaylist(List<String> chansons, String motCle) {
+  List<String> resultats =
+      chansons.where((chanson) => chanson.contains(motCle)).toList();
+  print("Résultats pour '$motCle' : $resultats");
+  return resultats;
+}
+
 void main() {
   List<String> playlist = [
     "Daddy",
