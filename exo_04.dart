@@ -31,6 +31,14 @@ List<String> trierPlaylist(List<String> chansons, bool ordreAscendant) {
   return chansons;
 }
 
+void afficherStats(List<String> chansons, List<double> durees) {
+  int nombreTotal = chansons.length;
+  double dureeMoyenne =
+      durees.isNotEmpty ? durees.reduce((a, b) => a + b) / durees.length : 0.0;
+  print("Nombre total de chansons : $nombreTotal");
+  print("Durée moyenne : ${dureeMoyenne.toStringAsFixed(2)} minutes");
+}
+
 void main() {
   List<String> playlist = [
     "Daddy",
