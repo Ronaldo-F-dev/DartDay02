@@ -41,6 +41,18 @@ void analyserIndices() {
   }
 }
 
+void afficherCarte() {
+  if (carteTresor.isEmpty) {
+    print("La carte est vide.");
+  } else {
+    print("\n🌍 Carte des lieux :");
+    for (var lieu in carteTresor) {
+      print(
+          "📍 ${lieu["nom"]} | Distance : ${lieu["distance"]}km | Explorateurs : ${lieu["explorateurs"]}");
+    }
+  }
+}
+
 void main() {
   ajouterLieu("Île Perdue", "Un lieu mystérieux avec un danger caché.", 15.3);
   ajouterLieu("Temple Maudit",
