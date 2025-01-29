@@ -1,13 +1,13 @@
 void gererPlaylist(List<String> chansons) {
   print("Playlist actuelle : $chansons");
 
-  chansons = ajouterChanson(chansons, "Vêtements");
+  //chansons = ajouterChanson(chansons, "Vêtements");
   //chansons = supprimerChanson(chansons, "Demarrer");
   //chansons = trierPlaylist(chansons, true); // true pour ordre A→Z
   //afficherStats(chansons, [3.5, 4.2, 5.0]); // Durées fictives
   //rechercherDoublon(chansons, "Pitbull");
   //accederPremiereDerniere(chansons);
-  //chansons = shufflePlaylist(chansons);
+  chansons = shufflePlaylist(chansons);
   //chansons = filtrerPlaylist(chansons, "l");
   //chansons = nettoyerDoublons(chansons);
   //chansons = remixerPlaylist(chansons);
@@ -44,6 +44,21 @@ void rechercherDoublon(List<String> chansons, String chanson) {
   print(doublon
       ? "Doublon détecté pour : $chanson"
       : "Pas de doublon pour : $chanson");
+}
+
+void accederPremiereDerniere(List<String> chansons) {
+  if (chansons.isNotEmpty) {
+    print("Première chanson : ${chansons.first}");
+    print("Dernière chanson : ${chansons.last}");
+  } else {
+    print("Playlist vide.");
+  }
+}
+
+List<String> shufflePlaylist(List<String> chansons) {
+  chansons = List.from(chansons.reversed);
+  print("Playlist inversée : $chansons");
+  return chansons;
 }
 
 void main() {
