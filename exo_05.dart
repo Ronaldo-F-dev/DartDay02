@@ -10,6 +10,11 @@ void ajouterLieu(String nom, String description, double distance) {
   print("Lieu ajouté : $nom");
 }
 
+void retirerLieu(String nom) {
+  carteTresor.removeWhere((lieu) => lieu["nom"] == nom);
+  print("Lieu retiré : $nom");
+}
+
 void main() {
   ajouterLieu("Île Perdue", "Un lieu mystérieux avec un danger caché.", 15.3);
   ajouterLieu("Temple Maudit",
@@ -19,6 +24,6 @@ void main() {
   //enregistrerExplorateur("Temple Maudit", "AWADEME Ronaldo");
   //analyserIndices();
   //afficherCarte();
-  //retirerLieu("Temple Maudit");
+  retirerLieu("Temple Maudit");
   //afficherCarte();
 }
