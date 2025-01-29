@@ -7,8 +7,8 @@ void main() {
 void calculerTrajet(int distance) {
   //protocolEnergique(distance);
   //protocolDeGestionEnergie(distance);
-  //protocolDePointDeControl(distance);
-  protocolDeSecurite(distance);
+  protocolDePointDeControl(distance);
+  //protocolDeSecurite(distance);
 }
 
 void protocolEnergique(int distance) {
