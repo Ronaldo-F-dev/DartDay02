@@ -30,6 +30,17 @@ void enregistrerExplorateur(String nomLieu, String explorateur) {
   print("Erreur : Lieu introuvable.");
 }
 
+void analyserIndices() {
+  List<String> alertes = ["danger", "disparu", "interdit", "maudit"];
+
+  for (var lieu in carteTresor) {
+    String description = lieu["description"].toLowerCase();
+    if (alertes.any((mot) => description.contains(mot))) {
+      print("⚠️ Alerte sur '${lieu["nom"]}' : ${lieu["description"]}");
+    }
+  }
+}
+
 void main() {
   ajouterLieu("Île Perdue", "Un lieu mystérieux avec un danger caché.", 15.3);
   ajouterLieu("Temple Maudit",
