@@ -25,8 +25,13 @@ List<String> supprimerChanson(List<String> chansons, String chanson) {
   return chansons;
 }
 
+List<String> trierPlaylist(List<String> chansons, bool ordreAscendant) {
+  chansons.sort((a, b) => ordreAscendant ? a.compareTo(b) : b.compareTo(a));
+  print("Playlist triée : $chansons");
+  return chansons;
+}
+
 void main() {
-  // Exemple d'utilisation
   List<String> playlist = [
     "Daddy",
     "Demarrer",
