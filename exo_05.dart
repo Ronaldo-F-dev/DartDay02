@@ -15,6 +15,21 @@ void retirerLieu(String nom) {
   print("Lieu retiré : $nom");
 }
 
+void enregistrerExplorateur(String nomLieu, String explorateur) {
+  for (var lieu in carteTresor) {
+    if (lieu["nom"] == nomLieu) {
+      List<String> explorateurs = List<String>.from(lieu["explorateurs"]);
+      lieu["explorateurs"] = explorateurs;
+      if (!explorateurs.contains(explorateur)) {
+        explorateurs.add(explorateur);
+        print("$explorateur a visité $nomLieu.");
+      }
+      return;
+    }
+  }
+  print("Erreur : Lieu introuvable.");
+}
+
 void main() {
   ajouterLieu("Île Perdue", "Un lieu mystérieux avec un danger caché.", 15.3);
   ajouterLieu("Temple Maudit",
