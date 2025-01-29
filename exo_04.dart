@@ -13,10 +13,15 @@ void gererPlaylist(List<String> chansons) {
   //chansons = remixerPlaylist(chansons);
 }
 
-// Mode Ajout : ajoute une chanson en fin de liste
 List<String> ajouterChanson(List<String> chansons, String nouvelleChanson) {
   chansons.add(nouvelleChanson);
   print("Ajouté : $nouvelleChanson. Playlist : $chansons");
+  return chansons;
+}
+
+List<String> supprimerChanson(List<String> chansons, String chanson) {
+  chansons.remove(chanson);
+  print("Supprimé : $chanson. Playlist : $chansons");
   return chansons;
 }
 
