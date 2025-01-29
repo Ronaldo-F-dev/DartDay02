@@ -75,6 +75,12 @@ List<String> nettoyerDoublons(List<String> chansons) {
   return chansons;
 }
 
+List<String> remixerPlaylist(List<String> chansons) {
+  chansons = chansons.map((chanson) => "$chanson (Remix)").toList();
+  print("Playlist remixée : $chansons");
+  return chansons;
+}
+
 void main() {
   List<String> playlist = [
     "Daddy",
