@@ -68,6 +68,13 @@ List<String> filtrerPlaylist(List<String> chansons, String motCle) {
   return resultats;
 }
 
+List<String> nettoyerDoublons(List<String> chansons) {
+  print(chansons);
+  chansons = chansons.toSet().toList();
+  print("Playlist sans doublons : $chansons");
+  return chansons;
+}
+
 void main() {
   List<String> playlist = [
     "Daddy",
